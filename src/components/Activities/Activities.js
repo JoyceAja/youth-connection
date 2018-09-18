@@ -49,9 +49,9 @@ class AfterSchool extends Component {
       <div>
         {/* <h1>Afterschool</h1> */}
         <Activities dataArr={this.state.dataAfter} />
-        <span className="next change" onClick={this.handleNext}>
+        <button className="next change" onClick={this.handleNext}>
           NEXT
-        </span>
+        </button>
       </div>
     );
   }
