@@ -15,8 +15,8 @@ class Jobs extends Component {
 
   dataJobs = () => {
     fetch(
-        `https://data.cityofnewyork.us/resource/6fic-ympf.json?$limit=10&$offset=${this
-          .state.page * 10}`
+        `https://data.cityofnewyork.us/resource/6fic-ympf.json?$limit=5&$offset=${this
+          .state.page * 5}`
       )
       .then(response => {
         return response.json();
@@ -61,7 +61,6 @@ class Jobs extends Component {
   render() {
     const { jobs } = this.state;
     console.log('dataJobs' , jobs )
-    // console.log('YO THIS BRONX ' ,this.filterBorough('bronx'))
     return (
       <div>
         {/* <h1>Jobs</h1> */}
@@ -71,8 +70,7 @@ class Jobs extends Component {
             <button className="next change" onClick={this.handleNext}>
               NEXT
             </button>
-          </div>
-        ) 
+          </div> 
       </div>
     );
   }

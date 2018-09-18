@@ -21,13 +21,15 @@ class Jobs extends React.Component {
           </div>
           {this.props.dataArr.map((el, idx) => (
             <div className="job-box box">
-                <div className="job-name name job">{`Agency: ${el.agency}`} </div>
-                <div className="job-borough job">{`Borough community: ${el.borough_community}`}</div>
-                <div className="job-address job">{`Address: ${el.address}`}</div>
-                <div className="job-contact job">{`Contact Number: ${el.contact_number}`}</div>
-                <div className="job-program job">{`Program: ${el.program}`}</div>
-                <div className="job-type job">{`Program Type: ${el.program_type}`}</div>
-                <div className="job-site job">{`Site name: ${el.site_name}`}</div>
+              <div className="sub-header">Agency</div>
+                <div className="job-name title-header">{el.agency} </div>
+                {/* <div className="job-borough job">{el.borough_community}}</div> */}
+                <div className="job-address job">{`${el.address}, ${el.borough_community}`}</div>
+                <div className="job-contact job">{`${el.contact_number}`}</div>
+                <div className="sub-header">Employment Site</div>
+                <div className="job-site title-header">{`${el.site_name}`}</div>
+                <div className="job-program job">{`${el.program}`}</div>
+                {/* <div className="job-type job">{`Program Type: ${el.program_type}`}</div> */}
               </div>
           ))}
         </div>
