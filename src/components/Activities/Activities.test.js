@@ -27,7 +27,7 @@ describe("Activity", () => {
         page:0
     }
   const promise = Promise.resolve(mockData);
-  sinon.stub(global, "fetch").callsFake(() => promise);
+  sinon.stub(global, "fetch").callsFake(() => Promise.resolve(mockData));
 
   const wrapper = mount(<Activity />);
 
