@@ -8,7 +8,7 @@ import Activity from "./Activities";
 
 configure({ adapter: new Adapter() });
 
-jest.mock("axios");
+// jest.mock("axios");
 
 describe("Activity", () => {
     
@@ -21,19 +21,20 @@ describe("Activity", () => {
     button.simulate("click");
     expect(wrapper.state().page).toEqual(1);
   });
+
   it("ensures the state is set", () => {
     const mockData = {
         dataAfter:[{job:"clerk", location: "Brooklyn"}],
         page:0
     }
   const promise = Promise.resolve(mockData);
-  sinon.stub(global, "fetch").callsFake(() => Promise.resolve(mockData));
+  const save = sinon.stub(global, "fetch").callsFake(() => {return promise});;
 
   const wrapper = mount(<Activity />);
 
   return promise
     .then(() => {
-      expect(wrapper.state()).toHaveProperty("dataAfter",mockData.dataAfter);
+      expect(wrapper.state("loaded")).toEqual(true);
 
       wrapper.update();
     })

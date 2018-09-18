@@ -11,7 +11,7 @@ configure({ adapter: new Adapter() });
 jest.mock("axios");
 
 describe("Jobs", () => {
-  it("the state of page is changed once the next button is clicked", () => {
+  it("shows the state of page is changed once the next button is clicked", () => {
     const wrapper = shallow(<Jobs />);
     // const mock = jest.fn()
     const button = wrapper.find("button");
@@ -27,13 +27,14 @@ describe("Jobs", () => {
           pages:0
       }
     const promise = Promise.resolve(mockData);
-    sinon.stub(global, "fetch").callsFake(() => promise);
+    sinon.stub(window, "fetch").callsFake(() => promise);
 
     const wrapper = mount(<Jobs />);
 
     return promise
       .then(() => {
-        expect(wrapper.state()).toHaveProperty("jobs");
+        // expect(wrapper.state()).toHaveProperty("loaded", true);
+        expect(wrapper.state("loaded")).toEqual(true)
 
         wrapper.update();
       })

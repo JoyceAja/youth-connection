@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot test 1`] = `
+<div
+  className="app-container"
+>
+  <div
+    className="header"
+  >
+    <div
+      className="logo"
+    >
+      YC
+    </div>
+    <nav
+      className="nav"
+    >
+      <div
+        className="nav-item"
+      >
+        <a
+          href="/"
+          onClick={[Function]}
+        >
+          Home
+        </a>
+      </div>
+      <div
+        className="nav-item"
+      >
+        <a
+          href="/jobs"
+          onClick={[Function]}
+        >
+          Jobs
+        </a>
+      </div>
+      <div
+        className="nav-item"
+      >
+        <a
+          href="/activities"
+          onClick={[Function]}
+        >
+          Activities
+        </a>
+      </div>
+      <div
+        className="nav-item"
+      >
+        <a
+          href="/location"
+          onClick={[Function]}
+        >
+          Location
+        </a>
+      </div>
+    </nav>
+  </div>
+  <div
+    className="home"
+  >
+    <div
+      className="img-container"
+    />
+    <div
+      className="project"
+    >
+      <div
+        className="project-name"
+      >
+        Youth Connection
+      </div>
+      <div
+        className="project-description"
+      >
+        Search opportunities for NYC Youth 
+      </div>
+    </div>
+  </div>
+</div>
+`;
