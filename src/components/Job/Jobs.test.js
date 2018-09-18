@@ -10,29 +10,20 @@ configure({ adapter: new Adapter() });
 jest.mock("axios");
 
 describe("Jobs", () => {
-  beforeEach(() => {
-    // jest.mock('https://data.cityofnewyork.us/resource/6fic-ympf.json?$limit=16&$offset=$0')
-    // .get()
-    // window.fetch = jest.fn().mockImplementation(() =>
-    //   Promise.resolve({
-    //     json: () => Promise.resolve("the data is fetched")
-    //   })
-    // );
-    // const renderJobs = shallow(<Jobs />);
-  });
-  it("should fetch the right data", () => {
-    const renderJobs = shallow(<Jobs />);
-    const mock = jest.fn()
 
-    expect(renderJobs.state().page).toEqual(1);
-    renderJobs.stimulate("click");
-    expect(renderJobs.state().page).toEqual(1);
-  });
+  it("the state of page is changed once the next button is clicked", () => {
+    const wrapper = shallow(<Jobs />);
+    // const mock = jest.fn()
+    const button = wrapper.find("button")
 
-  it("the state is reset when the next button is clicked", () => {
-    const res = [{ data: "it works" }];
-    const renderJobs = shallow(<Jobs />);
-    axios.get.mockImplementation(() => Promise.resolve(res));
-    return renderJobs.dataJobs().then(jobs => expect(jobs).toEqual(res));
+    expect(wrapper.state().page).toEqual(0);
+    button.simulate("click");
+    expect(wrapper.state().page).toEqual(1);
   });
 });
+
+//   it("the state is reset when the next button is clicked", () => {
+//     const res = [{ data: "it works" }];
+//     const renderJobs = shallow(<Jobs />);
+//     return renderJobs.dataJobs().then(jobs => expect(jobs).toEqual(res));
+//   });

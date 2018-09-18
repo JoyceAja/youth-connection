@@ -9,17 +9,17 @@ const styles = require('../styles').popStyle
 const customContentStyle = require('../styles').customContentStyle
 const backgroundStyle = require('../styles').bodyStyle
 
-const Info = el => (
-  <div>
-    <h3>{`Agency: ${el.agency}`} </h3>
-    <p>{`Borough community: ${el.borough_community}`}</p>
-    <p>{`Address: ${el.address}`}</p>
-    <p>{`Contact Number: ${el.contact_number}`}</p>
-    <p>{`Program: ${el.program}`}</p>
-    <p>{`Program Type: ${el.program_type}`}</p>
-    <p>{`Site name: ${el.site_name}`}</p>)}
-  </div>
-);
+// const Info = el => (
+//   <div>
+//     <h3>{`Agency: ${el.agency}`} </h3>
+//     <p>{`Borough community: ${el.borough_community}`}</p>
+//     <p>{`Address: ${el.address}`}</p>
+//     <p>{`Contact Number: ${el.contact_number}`}</p>
+//     <p>{`Program: ${el.program}`}</p>
+//     <p>{`Program Type: ${el.program_type}`}</p>
+//     <p>{`Site name: ${el.site_name}`}</p>)}
+//   </div>
+// );
 
 class Jobs extends React.Component {
   constructor(props) {
@@ -84,7 +84,8 @@ class Jobs extends React.Component {
     )
   }
   render() {
-    console.log("calling", this.props);
+    console.log('hello from the other side')
+    console.log("calling", this.props.dataArr);
     return (
       <div>
         {/* <div className="outside outline"> */}
