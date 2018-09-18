@@ -6,7 +6,8 @@ class AfterSchool extends Component {
     super(props);
     this.state = {
       dataAfter: [],
-      page: 0
+      page: 0,
+      loaded:false
     };
   }
 
@@ -22,7 +23,8 @@ class AfterSchool extends Component {
         console.log("setState: ", this.setState);
 
         this.setState({
-          dataAfter: data
+          dataAfter: data,
+          loaded:true
         });
       })
       .catch(err => {

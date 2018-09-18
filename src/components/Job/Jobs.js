@@ -8,14 +8,15 @@ class Jobs extends Component {
     super(props);
     this.state = {
       jobs: [],
-      page: 0
+      page: 0,
+      loaded:false
     };
   }
 
   dataJobs = () => {
     fetch(
-        `https://data.cityofnewyork.us/resource/6fic-ympf.json?$limit=16&$offset=${this
-          .state.page * 16}`
+        `https://data.cityofnewyork.us/resource/6fic-ympf.json?$limit=10&$offset=${this
+          .state.page * 10}`
       )
       .then(response => {
         return response.json();
@@ -23,7 +24,8 @@ class Jobs extends Component {
       .then(data => {
         console.log("data", data);
         this.setState({
-          jobs: data
+          jobs: data,
+          loaded:true
         });
       })
       .catch(err => {
