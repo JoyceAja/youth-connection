@@ -10,8 +10,8 @@ import "./Home.css"
 import pic from "../../home-pic.jpg";
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       dataJob: [],
       dataAfter: [],

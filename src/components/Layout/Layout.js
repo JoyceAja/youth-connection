@@ -1,8 +1,9 @@
 import React from "react";
+import PropTypes from "prop-type";
 
 import "./Layout.css"
 
-class Jobs extends React.Component {
+export default class Jobs extends React.Component {
   constructor(props) {
     super(props);
 
@@ -33,4 +34,7 @@ class Jobs extends React.Component {
   }
 }
 
-export default Jobs;
+Jobs.propTypes = {
+  children: PropTypes.element.isRequired,
+  dataArr: PropTypes.array
+}

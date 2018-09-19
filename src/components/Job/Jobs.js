@@ -3,11 +3,9 @@ import Layout from "../Layout/Layout";
 import axios from "axios";
 import injectTapEventPlugin from "react-tap-event-plugin";
 
-// import "../Layout/Layout.css";
-
 class Jobs extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       jobs: [],
       page: 0,
@@ -73,10 +71,8 @@ class Jobs extends Component {
 
   render() {
     const { jobs, page } = this.state;
-    console.log("dataJobs", jobs);
     return (
       <div>
-        {/* <h1>Jobs</h1> */}
         <div>
         <div className="title-box">
             <div className="title">JOBS AND INTERNSHIPS</div>

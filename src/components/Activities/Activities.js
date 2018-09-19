@@ -1,15 +1,13 @@
 import React, { Component } from "react";
 import Layout from "../Layout/Layout";
 
-// import "../Layout/Layout.css";
-
 class AfterSchool extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       dataAfter: [],
       page: 0,
-      loaded:false
+      loaded: false
     };
   }
 
@@ -26,7 +24,7 @@ class AfterSchool extends Component {
 
         this.setState({
           dataAfter: data,
-          loaded:true
+          loaded: true
         });
       })
       .catch(err => {
@@ -38,16 +36,16 @@ class AfterSchool extends Component {
     this.dataActivties();
   }
 
-  handleNext = (e) => {
-      e.preventDefault()
+  handleNext = e => {
+    e.preventDefault();
     this.setState({
       page: this.state.page + 1
     });
 
     this.dataActivties();
   };
-  handlePrev = (e) => {
-    e.preventDefault()
+  handlePrev = e => {
+    e.preventDefault();
     this.setState({
       page: this.state.page - 1
     });
@@ -55,25 +53,24 @@ class AfterSchool extends Component {
   };
 
   render() {
-    console.log(" Activties: ", this.state.dataAfter);
-    const { page } = this.state
+    const { page } = this.state;
 
     return (
       <div>
-         <div className="title-box">
-            <div className="title">AFTERSCHOOL ACTIVITIES</div>
-          </div>
+        <div className="title-box">
+          <div className="title">AFTERSCHOOL ACTIVITIES</div>
+        </div>
         <Layout dataArr={this.state.dataAfter} />
         <button className="next change" onClick={this.handleNext}>
           NEXT
         </button>
         {page > 1 ? (
-            <button className="prev change" onClick={this.handlePrev}>
-              Prev
-            </button>
-          ) : (
-            ""
-          )}
+          <button className="prev change" onClick={this.handlePrev}>
+            Prev
+          </button>
+        ) : (
+          ""
+        )}
       </div>
     );
   }
