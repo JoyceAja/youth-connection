@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Layout from "./jobLayout";
 import axios from "axios";
 import injectTapEventPlugin from "react-tap-event-plugin";
+import "./Job.css";
 
 class Jobs extends Component {
   constructor(props) {
@@ -9,15 +10,15 @@ class Jobs extends Component {
     this.state = {
       jobs: [],
       page: 0,
-      loaded:false
+      loaded: false
     };
   }
 
   dataJobs = () => {
     fetch(
-        `https://data.cityofnewyork.us/resource/6fic-ympf.json?$limit=5&$offset=${this
-          .state.page * 5}`
-      )
+      `https://data.cityofnewyork.us/resource/6fic-ympf.json?$limit=5&$offset=${this
+        .state.page * 5}`
+    )
       .then(response => {
         return response.json();
       })
@@ -25,7 +26,7 @@ class Jobs extends Component {
         console.log("data", data);
         this.setState({
           jobs: data,
-          loaded:true
+          loaded: true
         });
       })
       .catch(err => {
@@ -37,7 +38,13 @@ class Jobs extends Component {
     this.setState({
       page: this.state.page + 1
     });
+    this.dataJobs();
+  };
 
+  handlePrev = () => {
+    this.setState({
+      page: this.state.page - 1
+    });
     this.dataJobs();
   };
 
@@ -56,21 +63,31 @@ class Jobs extends Component {
 
   componentDidMount = () => {
     this.dataJobs();
+    this.setState({
+        page:1
+    })
   };
 
   render() {
-    const { jobs } = this.state;
-    console.log('dataJobs' , jobs )
+    const { jobs, page } = this.state;
+    console.log("dataJobs", jobs);
     return (
       <div>
         {/* <h1>Jobs</h1> */}
-          <div>
-            {console.log('getting here', jobs)}
-            <Layout dataArr={jobs} />
-            <button className="next change" onClick={this.handleNext}>
-              NEXT
+        <div>
+          {console.log("getting here", jobs)}
+          <Layout dataArr={jobs} />
+          <button className="next change" onClick={this.handleNext}>
+            NEXT
+          </button>
+          {page > 1 ? (
+            <button className="prev change" onClick={this.handlePrev}>
+              Prev
             </button>
-          </div> 
+          ) : (
+            ""
+          )}
+        </div>
       </div>
     );
   }

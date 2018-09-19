@@ -23,13 +23,11 @@ class Jobs extends React.Component {
             <div className="job-box box">
               <div className="sub-header">Agency</div>
                 <div className="job-name title-header">{el.agency} </div>
-                {/* <div className="job-borough job">{el.borough_community}}</div> */}
                 <div className="job-address job">{`${el.address}, ${el.borough_community}`}</div>
                 <div className="job-contact job">{`${el.contact_number}`}</div>
                 <div className="sub-header">Employment Site</div>
                 <div className="job-site title-header">{`${el.site_name}`}</div>
                 <div className="job-program job">{`${el.program}`}</div>
-                {/* <div className="job-type job">{`Program Type: ${el.program_type}`}</div> */}
               </div>
           ))}
         </div>
