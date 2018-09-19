@@ -21,52 +21,6 @@ class Home extends Component {
     };
   }
 
-  // dataJobs = () => {
-  //   fetch(
-  //     `https://data.cityofnewyork.us/resource/6fic-ympf.json?$where=latitude is not null&$limit=150`
-  //   )
-  //     .then(response => {
-  //       return response.json();
-  //     })
-  //     .then(data => {
-  //       this.setState({
-  //         locations1: data.map(el => {
-  //           return {
-  //             latitude: el.latitude,
-  //             longitude: el.longitude
-  //           };
-  //         })
-  //         // location1: data.filter(el => el.latitude && el.longitude)
-  //       });
-  //       console.log("FILTERED! Jobs: ", this.state.locations1);
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     });
-  // };
-
-  // dataActivties = () => {
-  //   fetch(
-  //     `https://data.cityofnewyork.us/resource/mbd7-jfnc.json?$where=latitude is not null&$limit=19&$select=location_1`
-  //   )
-  //     .then(response => {
-  //       return response.json();
-  //     })
-  //     .then(data => {
-  //       this.setState({
-  //         locations2: data.map(el => {
-  //           return {
-  //             latitude: el.latitude,
-  //             longitude: el.longitude
-  //           };
-  //         })
-  //       });
-  //       console.log("FILTERED! Acts: ", this.state.locations2);
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     });
-  // };
 
   // onSpotClick = spot => {
   //   console.log("HI selectedSpotId ", this.state.selectedSpotId);
@@ -77,11 +31,6 @@ class Home extends Component {
   //   console.log("HI spotAS ", this.state.selectedASId);
   //   this.setState({ selectedASId: spotAS });
   // };
-
-  // componentDidMount() {
-  //   this.dataJobs();
-  //   this.dataActivties();
-  // }
 
   // handleText = e => {
   //   this.setState({ searchVal: e.target.value });
@@ -104,10 +53,6 @@ class Home extends Component {
         <div className="project-name">Youth Connection</div>
         <div className="project-description">Search opportunities for NYC Youth </div>
         </div>
-        {/* <div className="page">
-          <h1 className="yo">Youth </h1>
-          <h1 className="yo">Connection</h1>
-        </div> */}
 
         {/* <form onSubmit={this.handleEnter}>
           <input

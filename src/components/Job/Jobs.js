@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import Layout from "./jobLayout";
+import Layout from "../Layout/Layout";
 import axios from "axios";
 import injectTapEventPlugin from "react-tap-event-plugin";
-import "./Job.css";
+
+// import "../Layout/Layout.css";
 
 class Jobs extends Component {
   constructor(props) {
@@ -34,14 +35,16 @@ class Jobs extends Component {
       });
   };
 
-  handleNext = () => {
+  handleNext = (e) => {
+    e.preventDefault()
     this.setState({
       page: this.state.page + 1
     });
     this.dataJobs();
   };
 
-  handlePrev = () => {
+  handlePrev = (e) => {
+    e.preventDefault()
     this.setState({
       page: this.state.page - 1
     });
@@ -75,7 +78,9 @@ class Jobs extends Component {
       <div>
         {/* <h1>Jobs</h1> */}
         <div>
-          {console.log("getting here", jobs)}
+        <div className="title-box">
+            <div className="title">JOBS AND INTERNSHIPS</div>
+          </div>
           <Layout dataArr={jobs} />
           <button className="next change" onClick={this.handleNext}>
             NEXT
