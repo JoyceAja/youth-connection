@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./Job.css"
+import "./Layout.css"
 
 class Jobs extends React.Component {
   constructor(props) {
@@ -16,9 +16,6 @@ class Jobs extends React.Component {
     return (
       <div>
         <div className="container">
-          <div className="title-box">
-            <div className="title">JOBS AND INTERNSHIPS</div>
-          </div>
           {this.props.dataArr.map((el, idx) => (
             <div className="job-box box">
               <div className="sub-header">Agency</div>
