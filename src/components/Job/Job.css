@@ -1,14 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 .box{
     width:800px;
-    background-color: #CACED1;
+    /* background-color: #CACED1; */
+    /* background-color: #123A72; */
+    background-color: #98C5DB;
+    /* color:#123A72; */
+    color:#162238;
     margin-bottom: 30px;
     padding:30px;
     text-align: center;
-    border: 1px solid white;
+    font-family: 'Roboto', sans-serif;
     border-radius: 10px;
     -moz-box-shadow:    inset 0 0 3px #324359;
     -webkit-box-shadow: inset 0 0 3px #324359;
-    box-shadow:         inset 0 0 3px #324359;
+    box-shadow:         inset 0 0 3px #162238;
 }
 .container{
     display: flex;
@@ -16,8 +22,9 @@
     align-items: center;
 }
 .title{
-    font-size: 48px;
+    font-size: 40px;
     padding: 36px;
+    color:#162238;
 }
 .job{
     padding: 3px;
@@ -38,4 +45,19 @@
 }
 .job{
     font-size: 12px;
+}
+.change{
+    background-color: #162238;
+    width:150px;
+    color:lightgray;
+    padding:20px;
+    border-radius: 5px;
+    font-size: 15px;
+}
+.next{
+    float: right;
+    margin-right:30px;
+}
+.prev{
+    margin-left:30px;
 }

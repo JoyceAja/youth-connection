@@ -11,15 +11,24 @@ configure({ adapter: new Adapter() });
 jest.mock("axios");
 
 describe("Jobs", () => {
-  it("shows the state of page is changed once the next button is clicked", () => {
+  it("shows the state of page is increaces once the next button is clicked", () => {
     const wrapper = shallow(<Jobs />);
     // const mock = jest.fn()
-    const button = wrapper.find("button");
+    const button = wrapper.find(".next");
 
-    expect(wrapper.state().page).toEqual(0);
-    button.simulate("click");
     expect(wrapper.state().page).toEqual(1);
+    button.simulate("click");
+    expect(wrapper.state().page).toEqual(2);
   });
+
+  it("shows the state of the page decrease once the prev button is clicke", () => {
+    const wrapper = shallow(<Jobs />);
+    const button = wrapper.find(".prev");
+
+    expect(wrapper.state().page).toEqual(1);
+    button.simulate("click");
+    expect(wrapper.state().page).toEqual(0);
+  })
 
   it("ensures the state is set", () => {
       const mockData = {
