@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import Map from "../Map/Map";
-import MapInfo from "../Map/MapInfo";
-import MapInfo2 from "../Map/MapInfo2";
-import Search from "../Map/Search";
+import Map from "./Map";
+import MapInfo from "./MapInfo";
+import MapInfo2 from "./MapInfo2";
+import Search from "./Search";
 
 export default class Location extends Component {
   constructor() {
+    super()
     this.state = {
       searchVal: "",
       selectedSpotId: null,
@@ -31,6 +32,7 @@ export default class Location extends Component {
     const { searchVal } = this.state;
     this.props.history.push(`/search/${searchVal}`);
   };
+  
   render() {
     const { searchVal, selectedASId, selectedSpotId } = this.state;
     return (
