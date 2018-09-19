@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-// import { Link, Switch, Route} from 'react-router-dom'
-// import { GoogleMap } from "react-google-maps"
 import Map from "../Map/Map";
 import MapInfo from "../Map/MapInfo";
 import MapInfo2 from "../Map/MapInfo2";
@@ -11,8 +9,6 @@ import pic from "../../home-pic.jpg";
 
 class Home extends Component {
   render() {
-    const { searchVal, selectedASId, selectedSpotId } = this.state;
-
     return (
       <div className="home">
         <div className="img-container">
