@@ -38,14 +38,14 @@ class Jobs extends Component {
 
   handleJobs = () => {
     fetch("https://data.cityofnewyork.us/resource/6fic-ympf.json")
-    .then(response => response.json())
-    .then(data => {
-      console.log('data', data)
-      this.setState({
-        allJobs: data
-      })
-    })
-  }
+      .then(response => response.json())
+      .then(data => {
+        console.log("data", data);
+        this.setState({
+          allJobs: data
+        });
+      });
+  };
 
   handleNext = e => {
     e.preventDefault();
@@ -64,30 +64,20 @@ class Jobs extends Component {
   };
 
   handleText = e => {
-    this.setState({ searchVal: e.target.value });
+    const { searchVal, allJobs } = this.state;
+    const arr = allJobs.filter(el =>
+      el.borough_community.includes(e.target.value)
+    );
+    this.setState({
+      searchVal: e.target.value,
+      filteredJobs: arr
+    });
   };
 
   handleEnter = e => {
     e.preventDefault();
     const { searchVal, allJobs } = this.state;
-    const arr = allJobs.filter(el => el.borough_community === searchVal )
-    this.setState({
-      filteredJobs:arr
-    })
   };
-
-  //   filterBorough=(placeholder)=>{
-  //       let {dataJobs} = this.state
-  //         let obj = {
-  //             queens: dataJobs.filter(point => point.borough_community === 'Queens' && 'Long Island  City'),
-  //             manhattan: dataJobs.filter(point => point.borough_community === 'Manhattan' && 'New York'),
-  //             bronx: dataJobs.filter(point => point.borough_community === 'Bronx'),
-  //             si: dataJobs.filter(point => point.borough_community === 'Staten Island'),
-  //             brooklyn: dataJobs.filter(point => point.borough_community === 'Brooklyn'),
-
-  //         }
-  //         return obj[placeholder]
-  //     }
 
   componentDidMount = () => {
     this.dataJobs();
@@ -107,25 +97,31 @@ class Jobs extends Component {
           </div>
 
           <div className="search-box">
-          <form onSubmit={this.handleEnter}>
-            <input
-              className="searchTerm"
-              type="text"
-              value={searchVal}
-              placeholder="Location"
-              onInput={this.handleText}
-            />
-            <button type="submit" className="searchButton">
-              <i class="fa fa-search" />
+            <form onSubmit={this.handleEnter}>
+              <input
+                className="searchTerm"
+                type="text"
+                value={searchVal}
+                placeholder="Location"
+                onInput={this.handleText}
+              />
+              <button type="submit" className="searchButton">
+                <i class="fa fa-search" />
+              </button>
+            </form>
+          </div>
+          {searchVal ? (
+            <Layout dataArr={filteredJobs} />
+          ) : (
+            <Layout dataArr={jobs} />
+          )}
+          {filteredJobs.length > 0 ? (
+            ""
+          ) : (
+            <button className="next change" onClick={this.handleNext}>
+              NEXT
             </button>
-          </form>
-          </div>    
-          {searchVal? <Layout dataArr={filteredJobs}/> : <Layout dataArr={jobs} />}
-          
-
-          <button className="next change" onClick={this.handleNext}>
-            NEXT
-          </button>
+          )}
           {page > 1 ? (
             <button className="prev change" onClick={this.handlePrev}>
               Prev

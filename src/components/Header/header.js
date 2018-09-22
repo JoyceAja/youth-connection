@@ -12,7 +12,7 @@ render(){
             <div className="nav-item"><Link to="/">Home</Link></div>
             <div className="nav-item"><Link to="/jobs">Jobs</Link></div>
             <div className="nav-item"><Link to="/activities">Activities</Link></div>
-            <div className="nav-item"><Link to="/location">Location</Link></div>
+            {/* <div className="nav-item"><Link to="/location">Location</Link></div> */}
             </nav>
         </div>
     )
