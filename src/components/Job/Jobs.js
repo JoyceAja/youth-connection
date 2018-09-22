@@ -9,7 +9,10 @@ class Jobs extends Component {
     this.state = {
       jobs: [],
       page: 0,
-      loaded: false
+      loaded: false,
+      searchVal: "",
+      allJobs: [],
+      filteredJobs: []
     };
   }
 
@@ -33,20 +36,44 @@ class Jobs extends Component {
       });
   };
 
-  handleNext = (e) => {
-    e.preventDefault()
+  handleJobs = () => {
+    fetch("https://data.cityofnewyork.us/resource/6fic-ympf.json")
+    .then(response => response.json())
+    .then(data => {
+      console.log('data', data)
+      this.setState({
+        allJobs: data
+      })
+    })
+  }
+
+  handleNext = e => {
+    e.preventDefault();
     this.setState({
       page: this.state.page + 1
     });
     this.dataJobs();
   };
 
-  handlePrev = (e) => {
-    e.preventDefault()
+  handlePrev = e => {
+    e.preventDefault();
     this.setState({
       page: this.state.page - 1
     });
     this.dataJobs();
+  };
+
+  handleText = e => {
+    this.setState({ searchVal: e.target.value });
+  };
+
+  handleEnter = e => {
+    e.preventDefault();
+    const { searchVal, allJobs } = this.state;
+    const arr = allJobs.filter(el => el.borough_community === searchVal )
+    this.setState({
+      filteredJobs:arr
+    })
   };
 
   //   filterBorough=(placeholder)=>{
@@ -64,20 +91,38 @@ class Jobs extends Component {
 
   componentDidMount = () => {
     this.dataJobs();
+    this.handleJobs();
     this.setState({
-        page:1
-    })
+      page: 1
+    });
   };
 
   render() {
-    const { jobs, page } = this.state;
+    const { jobs, page, searchVal, filteredJobs } = this.state;
     return (
       <div>
         <div>
-        <div className="title-box">
+          <div className="title-box">
             <div className="title">JOBS AND INTERNSHIPS</div>
           </div>
-          <Layout dataArr={jobs} />
+
+          <div className="search-box">
+          <form onSubmit={this.handleEnter}>
+            <input
+              className="searchTerm"
+              type="text"
+              value={searchVal}
+              placeholder="Location"
+              onInput={this.handleText}
+            />
+            <button type="submit" className="searchButton">
+              <i class="fa fa-search" />
+            </button>
+          </form>
+          </div>    
+          {searchVal? <Layout dataArr={filteredJobs}/> : <Layout dataArr={jobs} />}
+          
+
           <button className="next change" onClick={this.handleNext}>
             NEXT
           </button>

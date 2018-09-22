@@ -13,15 +13,15 @@ export default class Location extends Component {
       selectedASId: null
     };
   }
-  onSpotClick = spot => {
-    console.log("HI selectedSpotId ", this.state.selectedSpotId);
-    this.setState({ selectedSpotId: spot });
-  };
+  // onSpotClick = spot => {
+  //   console.log("HI selectedSpotId ", this.state.selectedSpotId);
+  //   this.setState({ selectedSpotId: spot });
+  // };
 
-  onSpotClick2 = spotAS => {
-    console.log("HI spotAS ", this.state.selectedASId);
-    this.setState({ selectedASId: spotAS });
-  };
+  // onSpotClick2 = spotAS => {
+  //   console.log("HI spotAS ", this.state.selectedASId);
+  //   this.setState({ selectedASId: spotAS });
+  // };
 
   handleText = e => {
     this.setState({ searchVal: e.target.value });
@@ -50,7 +50,7 @@ export default class Location extends Component {
           </button>
         </form>
 
-        <fieldset className="map-container">
+        {/* <fieldset className="map-container">
           <legend>Map</legend>
 
           <Map onRatClick={this.onSpotClick} onRatClick2={this.onSpotClick2} />
@@ -64,7 +64,7 @@ export default class Location extends Component {
 
           <hr />
           {selectedASId ? MapInfo2(selectedASId) : <strong> </strong>}
-        </div>
+        </div> */}
       </div>
     );
   }
