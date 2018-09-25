@@ -102,7 +102,7 @@ class Jobs extends Component {
                 className="searchTerm"
                 type="text"
                 value={searchVal}
-                placeholder="Location"
+                placeholder="Location (Ex:Brooklyn)"
                 onInput={this.handleText}
               />
               <button type="submit" className="searchButton">

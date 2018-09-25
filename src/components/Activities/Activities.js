@@ -72,7 +72,7 @@ class AfterSchool extends Component {
 
     this.dataActivties();
   };
-  
+
   handlePrev = e => {
     e.preventDefault();
     this.setState({
@@ -96,7 +96,7 @@ class AfterSchool extends Component {
                 className="searchTerm"
                 type="text"
                 value={searchVal}
-                placeholder="Location"
+                placeholder="Location (Ex:Brooklyn)"
                 onInput={this.handleText}
               />
               <button type="submit" className="searchButton">
