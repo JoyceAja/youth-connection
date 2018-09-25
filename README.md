@@ -1,6 +1,6 @@
 # Youth Connection
 
-[View Live](https://focused-hypatia-6418d8.netlify.com/)
+View [Live](https://focused-hypatia-6418d8.netlify.com/)
 
 This app uses the following NYC OpenData API: 
 * [DYCD after-school programs] (https://data.cityofnewyork.us/Education/DYCD-after-school-programs/mbd7-jfnc) 
