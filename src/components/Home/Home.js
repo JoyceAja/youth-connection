@@ -14,7 +14,7 @@ class Home extends Component {
         <div className="img-container">
         </div>
         <div className="project">
-        <div className="project-name">Youth Connection</div>
+        <div className="project-name">Youth Connect</div>
         <div className="project-description">Search opportunities for NYC Youth </div>
         </div>
       </div>
