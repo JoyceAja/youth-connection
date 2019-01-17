@@ -16,6 +16,7 @@ class Home extends Component {
         <div className="project">
         <div className="project-name">Youth Connect</div>
         <div className="project-description">Search opportunities for NYC Youth </div>
+        <div>Hello buddy</div>
         </div>
       </div>
     );
